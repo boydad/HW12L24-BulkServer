@@ -1,0 +1,3 @@
+[submodule "bulk"]
+	path = bulk
+	url = https://github.com/boydad/HW7L16-Cmd.git
