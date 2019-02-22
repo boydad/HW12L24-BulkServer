@@ -10,6 +10,7 @@ addons:
       - g++-7
       - cmake
       - libgtest-dev
+      - libboost-system-dev
     env:
       - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
      
