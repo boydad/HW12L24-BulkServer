@@ -7,13 +7,23 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/cmake/GetGitRevisionDescription)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/async)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
-                    ${CMAKE_CURRENT_SOURCE_DIR}/bulk/include
-                    ${CMAKE_CURRENT_SOURCE_DIR}/async/include)
+find_package(Boost COMPONENTS system REQUIRED)
+find_package(Threads REQUIRED)
 
 add_executable(${EXECUTE_FILE_NAME} src/main.cpp)
 
-target_link_libraries(${EXECUTE_FILE_NAME} async)
+target_include_directories(${EXECUTE_FILE_NAME} PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/bulk/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/async/include
+    ${Boost_INCLUDE_DIR}
+)
+
+target_link_libraries(${EXECUTE_FILE_NAME} 
+	async
+	${Boost_LIBRARIES}
+  ${CMAKE_THREAD_LIBS_INIT}
+)
 
 set_target_properties(${EXECUTE_FILE_NAME} PROPERTIES
   CXX_STANDARD 14
