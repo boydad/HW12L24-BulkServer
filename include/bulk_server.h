@@ -40,7 +40,6 @@ private:
         {
           if (!ec) {
             //!w check that command is full (ends with '\n')
-            std::cout << "receive: " << std::string{comBuffer, length};
             async::receive(commandManager, comBuffer, length);
             this->do_read();
           }

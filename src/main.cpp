@@ -7,8 +7,6 @@
 
 
 int main(int argc, char* argv[]) {
-  // try
-  // {
     if (argc != 3)
     {
       std::cerr << "Usage: bulk_server <port> <bulkSize>\n";
@@ -22,10 +20,5 @@ int main(int argc, char* argv[]) {
     BulkServer server(io_service, port, bSize);
 
     io_service.run();
-  // }
-  // catch (std::exception& e)
-  // {
-  //   std::cerr << "Exception: " << e.what() << "\n";
-  // }    
 }
     
