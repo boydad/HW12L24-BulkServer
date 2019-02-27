@@ -31,6 +31,7 @@ set_target_properties(${EXECUTE_FILE_NAME} PROPERTIES
   COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
 
+
 # install(TARGETS ${EXECUTE_FILE_NAME} DESTINATION bin)
 
 install(TARGETS ${EXECUTE_FILE_NAME} DESTINATION bin)
