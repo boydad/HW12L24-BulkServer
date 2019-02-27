@@ -30,7 +30,7 @@ script:
   - cmake --build . --target package
 
 before_deploy: 
-  - 'export _PROJECT_NAME="HW11L21-BulkServer"'
+  - 'export _PROJECT_NAME="HW12L21-BulkServer"'
   - 'export _PACKAGE_NAME="bulk_server"'
   - 'export _PROJECT_VERSION=`grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" cmake/GetGitRevisionDescription/version.cpp`'
 
@@ -38,4 +38,4 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-    - '! curl -T ${_PACKAGE_NAME}-${_PROJECT_VERSION}-Linux.deb -uboydad:$BINTRAY_API_KEY "https://api.bintray.com/content/boydad/otus-cpp/${_PACKAGE_NAME}/${_PROJECT_VERSION}/${_PROJECT_NAME}/${_PACKAGE_NAME}-${_PROJECT_VERSION}-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1" | grep -v success'
+    - '! curl -T ${_PACKAGE_NAME}-${_PROJECT_VERSION}-Linux.deb -uboydad:$BINTRAY_API_KEY "https://api.bintray.com/content/boydad/otus-cpp/${_PROJECT_NAME}/${_PROJECT_VERSION}/${_PROJECT_NAME}/${_PACKAGE_NAME}-${_PROJECT_VERSION}-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1" | grep -v success'
