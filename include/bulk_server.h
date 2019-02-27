@@ -5,7 +5,6 @@
 #include <memory>
 
 #include "async.h"
-
 #include "commandManager.h"
 
 namespace ba = boost::asio;
